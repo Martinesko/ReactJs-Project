@@ -1,0 +1,21 @@
+body{
+    background-color: gray;
+}
+
+header{
+    font-size: 30px;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px;
+}
+header nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+}
+header nav div{
+    display: flex;
+    column-gap: 20px;
+}
