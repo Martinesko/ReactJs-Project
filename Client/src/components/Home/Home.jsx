@@ -9,7 +9,7 @@ export default function Home(){
 
             </div>
             <div class="Image-container">
-                <img class="Image" src="./../../../public/images/Home-img.jpg"/>
+                <img class="Image" src="./../../../public/images/Home-img.png"/>
             </div>
         </div>
     )
