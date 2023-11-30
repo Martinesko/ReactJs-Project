@@ -1,0 +1,43 @@
+.Catalog-container{
+    background-color: white;
+    text-align: center;
+}
+.Catalog{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+}
+.Catalog-container h1{
+    padding: 30px;
+}
+.Catalog-image{
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+}
+.listing{
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    border-radius: 20px;
+    display: flex;
+    height: 20rem;
+    flex-direction: column;
+}
+.Information-Container{
+    text-align: left;
+    padding-top:30px;
+    padding-left: 20px;
+    font-weight: lighter;
+}
+.listing-title{
+    font-weight: lighter;
+}
+.price{
+  font-weight: bold;
+    padding: 10px;
+    padding-left: 0px;
+}
