@@ -1,0 +1,19 @@
+.Home-container{
+    background-color: white;
+    height: 50rem;
+    display:flex;
+    justify-content: space-evenly;
+}
+.Title-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+
+}
+.Title{
+    width:40rem;
+}
+.Image{
+    height:50rem;
+}
