@@ -43,7 +43,7 @@ background-color: white;
     font-size: 20px;
     background-color:#f2f4f5;
 }
-.description{
+section .description{
     width: 60%;
     height: 300px;
     border-radius: 5px;

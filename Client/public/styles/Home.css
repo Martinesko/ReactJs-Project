@@ -1,19 +1,19 @@
-.Home-container{
+.home-container{
     background-color: #f2f4f5;
     height: 50rem;
     display:flex;
     justify-content: space-evenly;
 }
-.Title-container{
+.title-container{
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
 
 }
-.Title{
+.title{
     width:40rem;
 }
-.Image{
+.image{
     height:50rem;
 }
