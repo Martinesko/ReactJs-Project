@@ -5,8 +5,7 @@ export default function Header(){
             <nav>
                <div id="user">
                    <a>Create</a>
-                   <a>My Listings</a>
-                   <a></a>
+                   <a>Your profile</a>
                    <a>Logout</a>
                </div>
                <div id="guest">
