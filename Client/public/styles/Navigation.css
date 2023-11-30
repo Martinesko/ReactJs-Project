@@ -1,5 +1,4 @@
 body{
-    background-color: gray;
     width: 100%;
 }
 
@@ -7,11 +6,13 @@ body{
     padding:0;
     margin:0;
     border:0;
+    font-family: Fantasy;
 }
 html{
     background-color: #f2f4f5;
 }
 header{
+    background-color: darkolivegreen;
     font-size: 30px;
     display:flex;
     flex-direction: row;
