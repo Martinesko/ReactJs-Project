@@ -1,16 +1,18 @@
+import { Link } from 'react-router-dom';
+
 export default function Header(){
     return(
         <header>
-            <p1>Shop</p1>
+            <a href="http://127.0.0.1:5173/">Shop</a>
             <nav>
                <div id="user">
-                   <a>Create</a>
-                   <a>Your profile</a>
-                   <a>Logout</a>
+                   <Link to="/products/add">Create</Link>
+                   <Link to="/yourlistings">Your listings</Link>
+                   <Link to="/logout">Logout</Link>
                </div>
                <div id="guest">
-                   <a>Login</a>
-                   <a>Register</a>
+                   <Link to="/login">Login</Link>
+                   <Link to="/register">Register</Link>
                </div>
             </nav>
         </header>

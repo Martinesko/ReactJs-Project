@@ -12,8 +12,8 @@ html{
     background-color: #f2f4f5;
 }
 header{
-    background-color: darkolivegreen;
-    font-size: 30px;
+    background: darkolivegreen;
+    font-size: 40px;
     display:flex;
     flex-direction: row;
     justify-content: space-between;
@@ -24,6 +24,9 @@ header nav{
     flex-direction: row;
     justify-content: space-evenly;
 
+}
+nav a{
+    font-size: 30px;
 }
 header nav div{
     display: flex;

@@ -68,5 +68,25 @@
     gap: 10px;
     padding: 3%;
 }
-
-
+.buttons .button{
+    margin-right: 0px;
+    width: 33%;
+}.buttons .button {
+     margin-right: 0px;
+     width: 33%;
+ }
+#edit{
+    background-color: dodgerblue;
+    transition: background-color 0.5s;
+}
+#delete{
+    background-color: red;
+    transition: background-color 0.5s;
+}
+#edit:hover{
+    background-color: #f2f4f5;
+}
+#delete:hover{
+    background-color: red;
+    background-color: #f2f4f5;
+}

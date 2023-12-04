@@ -1,15 +1,17 @@
+import AuthContext from "../../contexts/context.js";
+import {useContext} from "react";
+
 export default function Home(){
+    const { userId } = useContext(AuthContext);
+    console.log(userId);
     return(
-        <div class="home-container">
-            <div class="title-container">
-                <div class="Title">
-                    <h1>Welcome to my online reselling store</h1>
+        <div className="home-container">
+            <div className="title-container">
+                <div className="Title">
+                    <h1>Welcome to my online reselling store :)</h1>
                     <p>Here you can find variety of thing </p>
                 </div>
 
-            </div>
-            <div class="image-container">
-                <img class="image" src="./../../../public/images/Home-img.png"/>
             </div>
         </div>
     )

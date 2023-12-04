@@ -1,0 +1,33 @@
+.login-container{
+    background-color: white ;
+    width: 550px;
+    height: 450px;
+    border-radius: 10px;
+    padding:20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.login-container h1{
+    color: darkolivegreen;
+    font-size: 50px;
+    margin-bottom: 50px;
+}
+.buttons{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+.home-button{
+    height: 40px;
+    width: 30%;
+    border-radius: 20px;
+    background-color: #f2f4f5;
+    transition: background-color 0.5s;
+    outline: rgba(128, 128, 128, 0.19);
+    outline-style: solid;
+    outline-width: 1px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.home-button:hover{
+    cursor: pointer;
+}

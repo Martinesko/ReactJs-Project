@@ -29,6 +29,21 @@ background-color: white;
     font-size: 20px;
     background-color:#f2f4f5;
 }
+.input-price{
+    width: 25%;
+    height: 70px;
+    border-radius: 5px;
+    font-size: 20px;
+    background-color: #f2f4f5;
+    display: flex;
+}
+.input-price input{
+    margin-left: 20px;
+    width: 95%;
+    font-size: 30px;
+    background-color:#f2f4f5;
+}
+
 .selection{
     width: 30%;
     height: 60px;

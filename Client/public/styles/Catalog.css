@@ -1,8 +1,8 @@
-.Catalog-container{
+.catalog-container{
     background-color: #f2f4f5;
     text-align: center;
 }
-.Catalog{
+.catalog{
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -11,10 +11,10 @@
     padding-right: 10%;
     gap: 20px;
 }
-.Catalog-container h1{
+.catalog-container h1{
     padding: 30px;
 }
-.Catalog-image{
+.catalog-image{
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     width: 300px;
@@ -25,10 +25,10 @@
     background-color: white;
     border-radius: 20px;
     display: flex;
-    height: 20rem;
+    height: 100%;
     flex-direction: column;
 }
-.Information-Container{
+.information-Container{
     text-align: left;
     padding-top:30px;
     padding-left: 20px;
@@ -41,4 +41,14 @@
   font-weight: bold;
     padding: 10px;
     padding-left: 0px;
+}
+.button-holder .button{
+    display: flex;
+    flex-direction: column;
+}
+.button-holder{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 5%;
 }
