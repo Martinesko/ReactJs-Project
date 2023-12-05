@@ -14,6 +14,7 @@ import Register from "./components/Register/Register.jsx"
 import Login from "./components/Login/Login.jsx"
 import Logout from "./components/Logout/Logout.jsx"
 import YourListings from "./components/CreatorListings/CreatorListings.jsx"
+import Edit from "./components/Edit/Edit.jsx"
 
 function App() {
     const navigate = useNavigate();
@@ -70,11 +71,12 @@ function App() {
           <div className='app'>
               <Routes>
                   <Route path={"/"} element={<Home/>} />
-                  <Route path={"/products"} element={<Catalog />} />
-                  <Route path={"/products/add"} element={<Create />} />
+                  <Route path={"/listings"} element={<Catalog />} />
+                  <Route path={"/listings/add"} element={<Create />} />
                   <Route path={"/Details/:productId"} element={<Details />} />
                   <Route path={"/register"} element={<Register />} />
                   <Route path={"/yourlistings"} element={<YourListings />} />
+                  <Route path={"/yourlistings/edit/:_id"} element={<Edit />} />
                   <Route path={"/login"} element={<Login />} />
                   <Route path={"/logout"} element={<Logout />} />
               </Routes>

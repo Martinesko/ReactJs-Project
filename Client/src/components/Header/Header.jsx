@@ -1,20 +1,45 @@
 import { Link } from 'react-router-dom';
+import {useContext} from "react";
+import AuthContext from "../../contexts/context.js";
+import {useNavigate} from "react-router-dom";
 
 export default function Header(){
-    return(
-        <header>
-            <a href="http://127.0.0.1:5173/">Shop</a>
+    const navigate = useNavigate();
+    const { userId } = useContext(AuthContext);
+    if (userId !== undefined){
+       return (
+           <header>
+               <img onClick={()=>{navigate(`/`)}} src="/images/logo.png" className="img"/>
+               <div className="header">
+                   <div>
+                   <Link to={`/listings`} className="nav-button">Listings</Link>
+               </div>
             <nav>
-               <div id="user">
-                   <Link to="/products/add">Create</Link>
-                   <Link to="/yourlistings">Your listings</Link>
-                   <Link to="/logout">Logout</Link>
-               </div>
-               <div id="guest">
-                   <Link to="/login">Login</Link>
-                   <Link to="/register">Register</Link>
-               </div>
+
+                <div id="user">
+                    <Link to="/listings/add" className="nav-button">Create</Link>
+                    <Link to="/yourlistings" className="nav-button">Your listings</Link>
+                    <Link to="/logout" className="nav-button">Logout</Link>
+                </div>
             </nav>
+               </div>
         </header>
-    );
+       )
+    }
+    else {
+        return (
+            <header>
+                <img onClick={()=>{navigate(`/`)}} src="/images/logo.png" className="img"/>
+                <div className="header">
+                    <Link to={`/listings`} className="nav-button">Listings</Link>
+                <nav>
+                    <div id="guest">
+                        <Link to="/login" className="nav-button">Login</Link>
+                        <Link to="/register" className="nav-button">Register</Link>
+                    </div>
+                </nav>
+                </div>
+            </header>
+        );
+    }
 }

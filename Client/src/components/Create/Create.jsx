@@ -19,7 +19,7 @@ export default function Create(){
                 firstName: tempData.firstName,
                 email: tempData.email,
                 phoneNumber: tempData.phoneNumber,
-                creatorId: userId
+                _ownerId: userId
         }
         console.log(productData);
 
@@ -58,7 +58,7 @@ export default function Create(){
             </section>
             <section>
                 <h2>Photos</h2>
-                <textarea id="details" name="details" placeholder="Photo Url"></textarea>
+                <textarea id="photo" name="photo" placeholder="Photo Url"></textarea>
             </section>
             <section>
                 <h2>Details</h2>

@@ -4,6 +4,7 @@
     margin-left: 10%;
     margin-right: 10%;
     gap:1%;
+    flex-wrap: wrap;
 }
 .main-column{
     width:55%;
@@ -89,4 +90,26 @@
 #delete:hover{
     background-color: red;
     background-color: #f2f4f5;
+}
+#callnow{
+    width:100%;
+}
+.button-like{
+    color:#f2f4f5;
+    background-color: red;
+    transition: background-color 0.5s, color 0.5s;
+}
+.button-like:hover{
+    outline-style: solid;
+    outline-width: 1px;
+    color:red;
+    background-color: #f2f4f5;
+}
+.like-holder{
+    display: flex;
+    flex-direction: row;
+}
+#like{
+    border-radius: 200px;
+    width: 3rem;
 }

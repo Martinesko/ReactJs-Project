@@ -1,12 +1,13 @@
 import {useEffect, useState} from "react";
 import { useParams } from "react-router-dom";
 
+
+
 import * as productService from "../../services/productService.js";
 
 export default function Details(){
     const [product, setProduct] = useState([]);
     const {productId} = useParams();
-
     useEffect(() => {
         productService.getProduct(productId)
             .then(result => setProduct(result));
@@ -28,8 +29,10 @@ export default function Details(){
                     <p>Added December 23, 2022</p>
                     <h1>{product.title}</h1>
                     <h2>{product.price} лв.</h2>
-                    <button className="button">Call now</button>
-
+                    <div className="like-holder">
+                        <button id="callnow" className="button">Call now</button>
+                        <button id="like" className="button-like">❤</button>
+                    </div>
                 </div>
                 <div className="seller-container">
                     <h4>Seller</h4>

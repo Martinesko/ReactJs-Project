@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import useForm  from "../../hooks/useForm.js";
 import AuthContext from "../../contexts/context.js"
+import {useNavigate} from "react-router-dom";
 
 const LoginFormKeys = {
     email: 'email',
@@ -8,6 +9,7 @@ const LoginFormKeys = {
 }
 
 export default function Login(){
+    const navigate = useNavigate();
     const { loginSubmitHandler } = useContext(AuthContext);
 
     const { values, onChange, onSubmit } = useForm(loginSubmitHandler, {
@@ -41,8 +43,9 @@ export default function Login(){
                                 id="password"
                                 className="form-control" />
                         </div>
+                        <h4>You don't have an account yet  <span onClick={()=>{navigate(`/register`)}}>Register</span></h4>
                         <div className="buttons">
-                            <button className="home-button">Back to home</button>
+                            <button onClick={()=>{navigate(`/`)}}className="home-button">Back to home</button>
                             <button type="submit" className="register-button">Login</button>
                         </div>
 
