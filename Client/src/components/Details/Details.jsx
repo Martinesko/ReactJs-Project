@@ -1,23 +1,27 @@
 import {useEffect, useState} from "react";
-import { useParams } from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 
 
 
 import * as productService from "../../services/productService.js";
 
 export default function Details(){
+
+    const navigate = useNavigate();
     const [product, setProduct] = useState([]);
     const {productId} = useParams();
     useEffect(() => {
         productService.getProduct(productId)
             .then(result => setProduct(result));
     }, );
-
+    const handleCallNow = () => {
+        window.location.href = `tel:${product.phoneNumber}`;
+    };
     return(
         <div className="details-container">
             <div className="main-column">
                 <div className="images">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHa2uFOS9MnYEi_lswFQY99pNNI45T_pQRcA&usqp=CAU"/>
+                    <img src={product.imageUrl}/>
                 </div>
                 <div id="description">
                     <h3>Description</h3>
@@ -30,7 +34,7 @@ export default function Details(){
                     <h1>{product.title}</h1>
                     <h2>{product.price} лв.</h2>
                     <div className="like-holder">
-                        <button id="callnow" className="button">Call now</button>
+                        <button id="callnow" onClick={handleCallNow} className="button">Call now</button>
                         <button id="like" className="button-like">❤</button>
                     </div>
                 </div>

@@ -64,7 +64,22 @@ export default function Create(){
                     <h2>Category</h2>
                     <div className="selection">
                         <select onChange={onChange} id="category" name="category" value={product.category}>
-                            <option>hello</option>
+                            <option value="real_estate">Real Estate</option>
+                            <option value="vehicles">Cars, Caravans, Boats</option>
+                            <option value="auto_parts">Auto Parts, Accessories, Tires, and Rims</option>
+                            <option value="electronics">Electronics</option>
+                            <option value="sports_books_hobbies">Sports, Books, Hobbies</option>
+                            <option value="pets">Pets</option>
+                            <option value="home_garden">Home and Garden</option>
+                            <option value="fashion">Fashion</option>
+                            <option value="baby_child">For Babies and Children</option>
+                            <option value="tours_vacations">Tours, Vacations</option>
+                            <option value="services">Services</option>
+                            <option value="machinery_tools">Machinery, Tools, Business Equipment</option>
+                            <option value="jobs">Jobs</option>
+                            <option value="free">Free/Giveaways</option>
+                            <option value="laptops_computers">Laptops and Computers</option>
+                            <option value="accommodation">Accommodation for Christmas and New Year</option>
                         </select>
                     </div>
                     <h2>Price</h2>
@@ -75,8 +90,10 @@ export default function Create(){
                 </section>
                 <section>
                     <h2>Photos</h2>
-                    <textarea onChange={onChange} id="photo" name="photo" placeholder="Photo Url" value={product.image}></textarea>
-                </section>
+                    <div className="description">
+                    <textarea onChange={onChange} id="imageUrl" name="imageUrl" placeholder="Photo Url" value={product.imageUrl}></textarea>
+                    </div>
+                    </section>
                 <section>
                     <h2>Details</h2>
                     <div className="description">

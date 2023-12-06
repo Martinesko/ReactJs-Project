@@ -1340,7 +1340,7 @@
             "847ec027-a659-4086-8032-5173e2f9c93a": {
                 title: "Sample Listing Title",
                 category: "hello",
-                photos: [],
+                imageUrl: "https://contents.mediadecathlon.com/p2511365/b56ebd41ddfccff9283ab6dcdbb0b224/p2511365.jpg",
                 price: 12.3,
                 details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sample details about the product.",
                 location: "Kyustendil",
@@ -1352,7 +1352,7 @@
             "847ec027-ak59-4086-8032-5173e2f9c93a": {
                 title: "Another Listing",
                 category: "world",
-                photos: [],
+                imageUrl: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
                 price: 12.3,
                 details: "Details about another product.",
                 location: "Another Location",
@@ -1364,7 +1364,7 @@
             "847ec02k-ak59-4086-8032-5173e2f9c93a": {
                 title: "hello",
                 category: "world",
-                photos: [],
+                imageUrl: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?q=80&w=1976&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
                 price: 12.3,
                 details: "Details about another product.",
                 location: "Another Location",
