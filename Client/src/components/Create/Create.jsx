@@ -5,36 +5,49 @@ import AuthContext from "../../contexts/context.js";
 export default function Create(){
     const navigate = useNavigate();
     const { userId } = useContext(AuthContext);
-    console.log(userId);
 
-    const productSubmitHandler = async (values) => {
+    if(userId !== ""){
+        navigate('/');
+    }
+
+    const productSubmitHandler = async (event) => {
         event.preventDefault();
-        const tempData = Object.fromEntries(new FormData(values.currentTarget));
+        const form = event.currentTarget;
+        const formData = new FormData(form);
+
+        const hasEmptyFields = Array.from(formData.entries()).some(([key, value]) => {
+            return value.trim() === "";
+        });
+
+        if (hasEmptyFields) {
+            alert("Please fill in all required fields.");
+            return;
+        }
 
         const productData = {
-              title: tempData.title,
-                category: tempData.category,
-                price: tempData.price,
-                details: tempData.details,
-                location: tempData.location,
-                firstName: tempData.firstName,
-                email: tempData.email,
-                phoneNumber: tempData.phoneNumber,
-                imageUrl: tempData.photo,
-                creationDate:new Date(),
-                _ownerId: userId
-        }
+            title: formData.get("title"),
+            category: formData.get("category"),
+            price: formData.get("price"),
+            details: formData.get("details"),
+            location: formData.get("location"),
+            firstName: formData.get("firstName"),
+            email: formData.get("email"),
+            phoneNumber: formData.get("phoneNumber"),
+            imageUrl: formData.get("photo"),
+            creationDate: new Date(),
+            _ownerId: userId,
+        };
 
-        try{
+        try {
             await productService.create(productData);
-
-            navigate(`catalog`);
-        }
-        catch(err){
+            alert("You have successfully created your listing!")
+            navigate(`/listings`);
+        } catch (err) {
             console.log(err);
             navigate("/");
         }
     };
+
     return(
         <div className="Create-container">
         <h1> Add Listing </h1>

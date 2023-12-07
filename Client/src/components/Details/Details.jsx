@@ -1,16 +1,15 @@
 import {useContext, useEffect, useState} from "react";
-import {useNavigate, useParams} from "react-router-dom";
+import {useParams} from "react-router-dom";
 
 import * as productService from "../../services/productService.js";
-import * as authService from "../../services/authService.js";
 import AuthContext from "../../contexts/context.js";
+import Buttons from "./Details-holder/likeButton.jsx";
 
 export default function Details(){
-
     const [product, setProduct] = useState([]);
     const [loading, setLoading] = useState(true);
-    const {productId} = useParams();
     const  {userId}  = useContext(AuthContext);
+    const {productId} = useParams();
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -24,24 +23,13 @@ export default function Details(){
             }
         };
 
-        fetchData(); // Call fetchData when the component mounts
+        fetchData();
     }, [productId]);
-
-    const callHandle = () => {
-        window.location.href = `tel:${product.phoneNumber}`;
-    };
-    const emailHandle = () => {
-        window.location.href = `mailto:${product.email}`;
-    };
 
     let image = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png";
     if (product.imageUrl !== ""){
         image = product.imageUrl;
     }
-
-    const likeHandle = async () => {
-        await authService.addLikedPost(userId, productId);
-    };
 
     const months = [
         'January', 'February', 'March', 'April', 'May', 'June',
@@ -64,13 +52,7 @@ export default function Details(){
                     {/*<p>{`Added ${months[product.creationDate.getMonth()]} ${product.creationDate.getDate()}, ${product.creationDate.getFullYear()}`}</p>*/}
                     <h1>{product.title}</h1>
                     <h2>{product.price} лв.</h2>
-                    <div id="con">
-                    <div className="like-holder">
-                        <button id="callnow" onClick={callHandle} className="button">Call now</button>
-                        <button id="like" onClick={likeHandle} className="button-like">❤</button>
-                    </div>
-                        <button id="edit" onClick={emailHandle} className="button">Email</button>
-                    </div>
+                    <Buttons product={product} userId={userId}/>
                 </div>
                 <div className="seller-container">
                     <h4>Seller</h4>

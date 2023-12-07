@@ -9,6 +9,7 @@
     flex-wrap: wrap;
     padding-left: 10%;
     padding-right: 10%;
+    padding-bottom: 5%;
     gap: 20px;
 }
 .catalog-container h1{

@@ -4,10 +4,10 @@ import {useContext, useEffect, useState} from "react";
 import AuthContext from "../../contexts/context.js";
 import {getProduct} from "../../services/productService.js";
 
-export default function Create(){
+export default function Edit(){
         const navigate = useNavigate();
         const { _id } = useParams();
-        console.log(_id);
+    const { userId } = useContext(AuthContext);
         const [product, setProduct] = useState({
             title: '',
             category: '',
@@ -24,8 +24,12 @@ export default function Create(){
         useEffect(() => {
             productService.getProduct(_id)
                 .then(result => {
-                    setProduct(result)
+                    setProduct(result);
+                    if (result._ownerId !== userId) {
+                       return navigate("/");
+                    }
                 });
+
         }, [_id]);
 
     const editReviewSubmitHandler = async (e) => {
@@ -35,7 +39,7 @@ export default function Create(){
 
         try {
             await productService.edit(_id, product);
-
+            alert("You have successfully edited your listing!")
             navigate(`/details/${_id}`);
         } catch (err) {
             // Error notification

@@ -16,7 +16,9 @@ import Logout from "./components/Logout/Logout.jsx"
 import YourListings from "./components/CreatorListings/CreatorListings.jsx"
 import Edit from "./components/Edit/Edit.jsx"
 import Footer from "./components/Footer/Footer.jsx"
-import Liked from "./components/Liked/Liked.jsx"
+import Error from "./components/Error/Error.jsx"
+import AuthGuard from "./components/Guards/AuthGuard.jsx"
+import ReviewGuard from "./components/Guards/ReviewGuard.jsx"
 
 function App() {
     const navigate = useNavigate();
@@ -36,7 +38,7 @@ function App() {
     };
 
     const registerSubmitHandler = async (values) => {
-        const { password, confirmPassword,likedPosts, ...rest } = values;
+        const { password, confirmPassword, ...rest } = values;
 
         if (password !== confirmPassword) {
             console.error("Passwords don't match");
@@ -46,7 +48,6 @@ function App() {
         const result = await authService.register(
             rest.email,
             password,
-            { likedPosts:[] }
         );
 
         setAuth(result);
@@ -85,14 +86,18 @@ function App() {
               <Routes>
                   <Route path={"/"} element={<Home/>} />
                   <Route path={"/listings"} element={<Catalog />} />
-                  <Route path={"/listings/add"} element={<Create />} />
-                  <Route path={"/Details/:productId"} element={<Details />} />
+             <Route path={"/Details/:productId"} element={<Details />} />
+                  <Route path={"*"} element={<Error/>} />
                   <Route path={"/register"} element={<Register />} />
-                  <Route path={"/yourlistings"} element={<YourListings />} />
-                  <Route path={"/yourlistings/edit/:_id"} element={<Edit />} />
-                  <Route path={"/liked"} element={<Liked />} />
                   <Route path={"/login"} element={<Login />} />
+                  <Route element={<AuthGuard />}>
+                      <Route path={"/listings/add"} element={<Create />} />
+                      <Route path={"/yourlistings"} element={<YourListings />} />
                   <Route path={"/logout"} element={<Logout />} />
+                      <Route element={<ReviewGuard />}>
+                          <Route path={"/yourlistings/edit/:_id"} element={<Edit />} />
+                      </Route>
+                  </Route>
               </Routes>
           </div>
           {isRegisterPage || isLoginPage ? null : <Footer/>}

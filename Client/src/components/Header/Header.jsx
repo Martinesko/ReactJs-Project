@@ -33,6 +33,7 @@ export default function Header(){
                 <img onClick={()=>{navigate(`/`)}} src="/images/logo.png" className="img"/>
                 <div className="header">
                     <div id="left-side">
+                        <Link to={`/`} className="nav-button">Home</Link>
                     <Link to={`/listings`} className="nav-button">Listings</Link>
                     </div>
                     <nav>

@@ -1069,7 +1069,7 @@
             context.auth = {
                 register,
                 login,
-                logout
+                logout,
             };
 
             const userToken = request.headers['x-authorization'];
