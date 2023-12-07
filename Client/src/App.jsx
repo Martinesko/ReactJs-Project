@@ -18,7 +18,7 @@ import Edit from "./components/Edit/Edit.jsx"
 import Footer from "./components/Footer/Footer.jsx"
 import Error from "./components/Error/Error.jsx"
 import AuthGuard from "./components/Guards/AuthGuard.jsx"
-import ReviewGuard from "./components/Guards/ReviewGuard.jsx"
+import ListingGuard from "./components/Guards/ListingGuard.jsx"
 
 function App() {
     const navigate = useNavigate();
@@ -94,7 +94,7 @@ function App() {
                       <Route path={"/listings/add"} element={<Create />} />
                       <Route path={"/yourlistings"} element={<YourListings />} />
                   <Route path={"/logout"} element={<Logout />} />
-                      <Route element={<ReviewGuard />}>
+                      <Route element={<ListingGuard />}>
                           <Route path={"/yourlistings/edit/:_id"} element={<Edit />} />
                       </Route>
                   </Route>

@@ -5,7 +5,7 @@ import AuthContext from "../../contexts/context.js"
 
 import * as productService from '../../services/productService.js';
 
-export default function ReviewGuard() {
+export default function ListingGuard() {
     const { userId } = useContext(AuthContext);
     const { id } = useParams();
     const navigate = useNavigate();

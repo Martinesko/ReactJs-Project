@@ -41,7 +41,7 @@ The frontend of the Reselling Store is built with React, a popular JavaScript li
 #### Guards
 
 - **AuthGuard:** Ensures that only authenticated users can access specific routes.
-- **ReviewGuard:** Checks if the logged-in user is the owner of the product before allowing access to edit routes.
+- **ListingsGuard:** Checks if the logged-in user is the owner of the product before allowing access to edit routes.
 
 ### Backend
 
