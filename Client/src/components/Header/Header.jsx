@@ -11,7 +11,8 @@ export default function Header(){
            <header>
                <img onClick={()=>{navigate(`/`)}} src="/images/logo.png" className="img"/>
                <div className="header">
-                   <div>
+                   <div id="left-side">
+                   <Link to={`/`} className="nav-button">Home</Link>
                    <Link to={`/listings`} className="nav-button">Listings</Link>
                </div>
             <nav>
@@ -31,13 +32,15 @@ export default function Header(){
             <header>
                 <img onClick={()=>{navigate(`/`)}} src="/images/logo.png" className="img"/>
                 <div className="header">
+                    <div id="left-side">
                     <Link to={`/listings`} className="nav-button">Listings</Link>
-                <nav>
+                    </div>
+                    <nav>
                     <div id="guest">
                         <Link to="/login" className="nav-button">Login</Link>
                         <Link to="/register" className="nav-button">Register</Link>
                     </div>
-                </nav>
+                    </nav>
                 </div>
             </header>
         );

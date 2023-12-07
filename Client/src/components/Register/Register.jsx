@@ -7,6 +7,7 @@ const RegisterFormKeys = {
     email: 'email',
     password: 'password',
     confirmPassword: 'confirmPassword',
+    LikedPosts: [],
 }
 
 export default function Register(){
@@ -15,7 +16,9 @@ export default function Register(){
 
     const { values, onChange, onSubmit } = useForm(registerSubmitHandler, {
         [RegisterFormKeys.email]: '',
-        [RegisterFormKeys.password]: ''
+        [RegisterFormKeys.password]: '',
+            [RegisterFormKeys.confirmPassword]: '',
+        [RegisterFormKeys.LikedPosts]:''
     });
 
     return(

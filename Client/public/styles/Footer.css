@@ -1,0 +1,32 @@
+.app {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 850px;
+}
+
+.header {
+    background-color: #333; /* Adjust the color as needed */
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.app {
+    flex: 1;
+}
+
+.footer {
+    background-color: darkolivegreen;
+    white-space: nowrap;
+    line-height: 3.5em;
+    padding-left: 10%;
+}
+
+.footer-text {
+    padding-left: 10%;
+    word-break: break-all;
+    white-space: normal;
+}

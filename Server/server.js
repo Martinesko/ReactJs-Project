@@ -1347,6 +1347,7 @@
                 firstName: "John",
                 email: "john@example.com",
                 phoneNumber: "123-456-7890",
+                creationDate: "2023-12-07T00:29:27.930Z",
                 creatorId:""
             },
             "847ec027-ak59-4086-8032-5173e2f9c93a": {
@@ -1359,6 +1360,7 @@
                 firstName: "Jane",
                 email: "jane@example.com",
                 phoneNumber: "987-654-3210",
+                creationDate: "2023-12-07T00:29:27.930Z",
                 creatorId:""
             },
             "847ec02k-ak59-4086-8032-5173e2f9c93a": {
@@ -1371,6 +1373,7 @@
                 firstName: "Jane",
                 email: "jane@example.com",
                 phoneNumber: "987-654-3210",
+                creationDate: "2023-12-07T00:29:27.930Z",
                 creatorId:""
             }
         }

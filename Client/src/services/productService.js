@@ -33,4 +33,9 @@ export const edit = async (_id,productData) => {
     return result;
 
 };
+export  const getUserLikedPosts = async (userLikedPostsIds) =>{
+    const result = await request.get(`${baseUrl}`);
+    const likedPosts = result.filter((post) => userLikedPostsIds.includes(post._id));
+    return likedPosts;
+}
 

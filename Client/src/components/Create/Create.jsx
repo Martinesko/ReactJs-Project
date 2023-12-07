@@ -10,6 +10,7 @@ export default function Create(){
     const productSubmitHandler = async (values) => {
         event.preventDefault();
         const tempData = Object.fromEntries(new FormData(values.currentTarget));
+
         const productData = {
               title: tempData.title,
                 category: tempData.category,
@@ -20,9 +21,9 @@ export default function Create(){
                 email: tempData.email,
                 phoneNumber: tempData.phoneNumber,
                 imageUrl: tempData.photo,
+                creationDate:new Date(),
                 _ownerId: userId
         }
-        console.log(productData);
 
         try{
             await productService.create(productData);

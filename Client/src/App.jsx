@@ -15,11 +15,14 @@ import Login from "./components/Login/Login.jsx"
 import Logout from "./components/Logout/Logout.jsx"
 import YourListings from "./components/CreatorListings/CreatorListings.jsx"
 import Edit from "./components/Edit/Edit.jsx"
+import Footer from "./components/Footer/Footer.jsx"
+import Liked from "./components/Liked/Liked.jsx"
 
 function App() {
     const navigate = useNavigate();
     const [auth, setAuth] = usePersistedState('auth', {});
 
+    console.log(auth);
     const loginSubmitHandler = async (values) => {
 
         const result = await authService.login(values.email, values.password);
@@ -33,11 +36,21 @@ function App() {
     };
 
     const registerSubmitHandler = async (values) => {
-        const result = await authService.register(values.email, values.password);
+        const { password, confirmPassword,likedPosts, ...rest } = values;
+
+        if (password !== confirmPassword) {
+            console.error("Passwords don't match");
+            return;
+        }
+
+        const result = await authService.register(
+            rest.email,
+            password,
+            { likedPosts:[] }
+        );
 
         setAuth(result);
         localStorage.setItem('accessToken', result.accessToken);
-
 
         console.log(result);
 
@@ -77,10 +90,12 @@ function App() {
                   <Route path={"/register"} element={<Register />} />
                   <Route path={"/yourlistings"} element={<YourListings />} />
                   <Route path={"/yourlistings/edit/:_id"} element={<Edit />} />
+                  <Route path={"/liked"} element={<Liked />} />
                   <Route path={"/login"} element={<Login />} />
                   <Route path={"/logout"} element={<Logout />} />
               </Routes>
           </div>
+          {isRegisterPage || isLoginPage ? null : <Footer/>}
       </AuthContext.Provider>
   )
 }
