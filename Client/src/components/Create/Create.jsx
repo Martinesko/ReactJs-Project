@@ -24,6 +24,57 @@ export default function Create(){
             return;
         }
 
+        const priceValue = formData.get("price");
+        if (!/^\d+(\.\d{1,2})?$/.test(priceValue)) {
+            alert("Please enter a valid numeric price.");
+            return;
+        }
+        const isValidEmail = (email) => {
+            // Use a regular expression for basic email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        };
+        const isValidPhoneNumber = (phoneNumber) => {
+            // Use a regular expression for basic phone number validation
+            const phoneRegex = /^\d{10}$/;
+            return phoneRegex.test(phoneNumber);
+        };
+
+        const isValidImageUrl = async (url) => {
+            return new Promise((resolve) => {
+                const img = new Image();
+                img.onload = () => resolve(true);
+                img.onerror = () => resolve(false);
+                img.src = url;
+            });
+        };
+
+        const imageUrlValue = formData.get("photo");
+        if (imageUrlValue && !(await isValidImageUrl(imageUrlValue))) {
+            alert("Please enter a valid image URL.");
+            return;
+        }
+
+
+
+        const emailValue = formData.get("email");
+        if (!isValidEmail(emailValue)) {
+            alert("Please enter a valid email address.");
+            return;
+        }
+
+        const phoneNumberValue = formData.get("phoneNumber");
+        if (!isValidPhoneNumber(phoneNumberValue)) {
+            alert("Please enter a valid phone number (10 digits without spaces or special characters).");
+            return;
+        }
+
+        function formatDate(isoDate) {
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+
+            return new Date(isoDate).toLocaleDateString(undefined, options);
+        }
+        const date = formatDate(new Date());
         const productData = {
             title: formData.get("title"),
             category: formData.get("category"),
@@ -34,7 +85,7 @@ export default function Create(){
             email: formData.get("email"),
             phoneNumber: formData.get("phoneNumber"),
             imageUrl: formData.get("photo"),
-            creationDate: new Date(),
+            creationDate: `Added ${date}`,
             _ownerId: userId,
         };
 
@@ -61,22 +112,21 @@ export default function Create(){
                 <h2>Category</h2>
                 <div className="selection">
                     <select id="category" name="category">
-                        <option value="real_estate">Real Estate</option>
-                        <option value="vehicles">Cars, Caravans, Boats</option>
-                        <option value="auto_parts">Auto Parts, Accessories, Tires, and Rims</option>
-                        <option value="electronics">Electronics</option>
-                        <option value="sports_books_hobbies">Sports, Books, Hobbies</option>
-                        <option value="pets">Pets</option>
-                        <option value="home_garden">Home and Garden</option>
-                        <option value="fashion">Fashion</option>
-                        <option value="baby_child">For Babies and Children</option>
-                        <option value="tours_vacations">Tours, Vacations</option>
-                        <option value="services">Services</option>
-                        <option value="machinery_tools">Machinery, Tools, Business Equipment</option>
-                        <option value="jobs">Jobs</option>
-                        <option value="free">Free/Giveaways</option>
-                        <option value="laptops_computers">Laptops and Computers</option>
-                        <option value="accommodation">Accommodation for Christmas and New Year</option>
+                        <option value="Real Estate">Real Estate</option>
+                        <option value="Cars, Caravans, Boats">Cars, Caravans, Boats</option>
+                        <option value="Auto Parts, Accessories, Tires, and Rims">Auto Parts, Accessories, Tires, and Rims</option>
+                        <option value="Electronics">Electronics</option>
+                        <option value="Sports, Books, Hobbies">Sports, Books, Hobbies</option>
+                        <option value="Pets">Pets</option>
+                        <option value="Home and Garden">Home and Garden</option>
+                        <option value="Fashion">Fashion</option>
+                        <option value="For Baby and Children">For Babies and Children</option>
+                        <option value="Tours and vacations">Tours, Vacations</option>
+                        <option value="Services">Services</option>
+                        <option value="Machinery, Tools, Business Equipment">Machinery, Tools, Business Equipment</option>
+                        <option value="Jobs">Jobs</option>
+                        <option value="Laptops and  computers">Laptops and Computers</option>
+                        <option value="Accommodation for Christmas and New Year">Accommodation for Christmas and New Year</option>
                     </select>
                 </div>
                 <h2>Price</h2>
@@ -86,7 +136,7 @@ export default function Create(){
 
             </section>
             <section>
-                <h2>Photos</h2>
+                <h2>Photo</h2>
                 <div className="description">
                 <textarea id="photo" name="photo" placeholder="Photo Url"></textarea>
                  </div>
@@ -101,33 +151,32 @@ export default function Create(){
                 <h2>Districts</h2>
                 <div className="selection">
                 <select id="location" name="location">
-                    <option value="blagoevgrad">Blagoevgrad</option>
-                    <option value="burgas">Burgas</option>
-                    <option value="varna">Varna</option>
-                    <option value="veliko_tarnovo">Veliko Tarnovo</option>
-                    <option value="vidin">Vidin</option>
-                    <option value="vraca">Vratsa</option>
-                    <option value="gabrovo">Gabrovo</option>
-                    <option value="dobrich">Dobrich</option>
-                    <option value="kardzhali">Kardzhali</option>
-                    <option value="kyustendil">Kyustendil</option>
-                    <option value="lovech">Lovech</option>
-                    <option value="montana">Montana</option>
-                    <option value="pazardzhik">Pazardzhik</option>
-                    <option value="pernik">Pernik</option>
-                    <option value="pleven">Pleven</option>
-                    <option value="plovdiv">Plovdiv</option>
-                    <option value="razgrad">Razgrad</option>
-                    <option value="ruse">Ruse</option>
-                    <option value="silistra">Silistra</option>
-                    <option value="sliven">Sliven</option>
-                    <option value="smolyan">Smolyan</option>
-                    <option value="sofia">Sofia</option>
-                    <option value="stara_zagora">Stara Zagora</option>
-                    <option value="targovishte">Targovishte</option>
-                    <option value="haskovo">Haskovo</option>
-                    <option value="shumen">Shumen</option>
-                    <option value="yambol">Yambol</option>
+                    <option value="Burgas">Burgas</option>
+                    <option value="Varna">Varna</option>
+                    <option value="Veliko Tarnovo">Veliko Tarnovo</option>
+                    <option value="Vidin">Vidin</option>
+                    <option value="Vratsa">Vratsa</option>
+                    <option value="Gabrovo">Gabrovo</option>
+                    <option value="Dobrich">Dobrich</option>
+                    <option value="Kardzhali">Kardzhali</option>
+                    <option value="Kyustendil">Kyustendil</option>
+                    <option value="Lovech">Lovech</option>
+                    <option value="Montana">Montana</option>
+                    <option value="Pazardzhik">Pazardzhik</option>
+                    <option value="Pernik">Pernik</option>
+                    <option value="Pleven">Pleven</option>
+                    <option value="Plovdiv">Plovdiv</option>
+                    <option value="Razgrad">Razgrad</option>
+                    <option value="Ruse">Ruse</option>
+                    <option value="Silistra">Silistra</option>
+                    <option value="Sliven">Sliven</option>
+                    <option value="Smolyan">Smolyan</option>
+                    <option value="Sofia">Sofia</option>
+                    <option value="Stara Zagora">Stara Zagora</option>
+                    <option value="Targovishte">Targovishte</option>
+                    <option value="Haskovo">Haskovo</option>
+                    <option value="Shumen">Shumen</option>
+                    <option value="Yambol">Yambol</option>
                 </select>
                 </div>
             </section>
