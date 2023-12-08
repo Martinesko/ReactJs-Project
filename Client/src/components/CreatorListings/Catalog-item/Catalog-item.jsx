@@ -20,7 +20,7 @@ return (
         <img className="catalog-image" src={image}/>
               <div className="information-Container-your">
             <h3 className="listing-title">{value.title}</h3>
-            <h3 className="price">{value.price} лв.</h3>
+            <h3 className="price">{value.price} lv.</h3>
             <p>{value.location} district</p>
             <div className="buttons">
                 <button id = "edit" onClick={()=>{navigate(`edit/${value._id}`)}} className="button" >Edit</button>
