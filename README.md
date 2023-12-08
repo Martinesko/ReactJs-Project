@@ -45,7 +45,7 @@ The frontend of the Reselling Store is built with React, a popular JavaScript li
 
 ### Backend
 
-The backend is implemented using Node.js with Express as the web application framework. The project follows a modular architecture with routes, controllers, models, and middleware.
+The backend is implemented using Node.js . The project follows a modular architecture with routes, controllers, models, and middleware.
 
 #### Routes
 
@@ -54,18 +54,9 @@ The backend is implemented using Node.js with Express as the web application fra
 - **/users/logout:** Logs out the user.
 - **/data/products:** Manages CRUD operations for product listings.
 
-#### Controllers
-
-- **authController:** Handles authentication-related logic.
-- **productController:** Manages product-related operations.
-
 #### Models
 
 - **Product:** Defines the schema for product data.
-
-#### Middleware
-
-- **authMiddleware:** Verifies user authentication before processing requests.
 
 ### Communication
 
@@ -79,17 +70,16 @@ Local storage is used for client-side state persistence, and the `usePersistedSt
 
 1. Clone the repository: `git clone https://github.com/Martinesko/ReactJs-Project.git`
 2. Install dependencies: `npm install`
-3. Start the frontend: `npm start` (in the `client` directory)
+3. Start the frontend: `npm run dev` (in the `client` directory)
 4. Start the backend: `node server.js` (in the `server` directory)
 
 ## Technologies Used
 
 - **Frontend:** React, React Router, HTML, CSS
-- **Backend:** Node.js, Express
-- **Database:** MongoDB (not explicitly mentioned, but assumed based on CRUD operations)
+- **Backend:** Node.js
 - **State Management:** React Context API, Local Storage
 - **Communication:** RESTful APIs
-- **Authentication:** Token-based (JWT)
+
 
 ## Contributors
 
