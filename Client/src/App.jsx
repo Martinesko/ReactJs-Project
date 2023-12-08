@@ -19,48 +19,57 @@ import Footer from "./components/Footer/Footer.jsx"
 import Error from "./components/Error/Error.jsx"
 import AuthGuard from "./components/Guards/AuthGuard.jsx"
 import ListingGuard from "./components/Guards/ListingGuard.jsx"
+import * as productService from "./services/productService.js";
 
 function App() {
     const navigate = useNavigate();
     const [auth, setAuth] = usePersistedState('auth', {});
 
-    console.log(auth);
     const loginSubmitHandler = async (values) => {
 
+        try{
         const result = await authService.login(values.email, values.password);
 
         setAuth(result);
         localStorage.setItem('accessToken', result.accessToken);
 
-        console.log(result);
-
         navigate("/");
+        }
+        catch(e){
+            alert("Login or password don't match");
+        }
     };
 
     const registerSubmitHandler = async (values) => {
         const { password, confirmPassword, ...rest } = values;
 
         if (password !== confirmPassword) {
-            console.error("Passwords don't match");
+            alert("Passwords don't match");
             return;
         }
 
-        const result = await authService.register(
-            rest.email,
-            password,
-        );
+        try {
+            const result = await authService.register(
+                rest.email,
+                password,
+            );
+            setAuth(result);
+            localStorage.setItem('accessToken', result.accessToken);
 
-        setAuth(result);
-        localStorage.setItem('accessToken', result.accessToken);
+            navigate("/");
+        }
+        catch (e){
+            alert("This account already exist!")
+        }
 
-        console.log(result);
 
-        navigate("/");
     };
 
     const logoutHandler = async () => {
-
-        await authService.logout();
+        const shouldLogout = window.confirm('Are you sure you want to log out?');
+        if (shouldLogout){
+            await authService.logout();
+        }
 
         setAuth({});
         localStorage.removeItem('accessToken');

@@ -34,6 +34,11 @@ export default function Edit(){
 
         }, [_id]);
 
+        if (product === undefined){
+            alert("This product does not exist");
+            navigate("/error/404");
+        }
+
     const editReviewSubmitHandler = async (e) => {
         e.preventDefault();
 
@@ -78,8 +83,6 @@ export default function Edit(){
             alert("Please enter a valid image URL.");
             return;
         }
-
-
 
         const emailValue = product.email;
         if (!isValidEmail(emailValue)) {

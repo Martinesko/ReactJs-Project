@@ -3,7 +3,6 @@ import {useContext} from "react";
 
 export default function Home(){
     const { userId } = useContext(AuthContext);
-    console.log(userId);
     return(
         <div className="home-container">
             <div className="title-container">

@@ -9,7 +9,6 @@ export  const getProducts = async () =>{
 }
 export  const getUserProducts = async (UserId) =>{
     const result = await request.get(`${baseUrl}`);
-    console.log(UserId);
     return Object.values(result).filter(x=>x._ownerId===UserId);
 }
 export  const getProduct = async (_id) => {
@@ -22,7 +21,6 @@ export const create = async (productData) => {
     return result;
 };
 export const removeProduct = async (_id) => {
-    console.log(_id);
     await request.remove(`${baseUrl}/${_id}`);
     return null;
 

@@ -55,8 +55,6 @@ export default function Create(){
             return;
         }
 
-
-
         const emailValue = formData.get("email");
         if (!isValidEmail(emailValue)) {
             alert("Please enter a valid email address.");
@@ -94,7 +92,7 @@ export default function Create(){
             alert("You have successfully created your listing!")
             navigate(`/listings`);
         } catch (err) {
-            console.log(err);
+            alert(err);
             navigate("/");
         }
     };
