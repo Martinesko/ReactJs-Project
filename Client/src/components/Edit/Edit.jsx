@@ -7,7 +7,9 @@ import {getProduct} from "../../services/productService.js";
 export default function Edit(){
         const navigate = useNavigate();
         const { _id } = useParams();
+
     const { userId } = useContext(AuthContext);
+
         const [product, setProduct] = useState({
             title: '',
             category: '',
@@ -18,7 +20,7 @@ export default function Edit(){
             firstName: '',
             email: '',
             phoneNumber: '',
-            creatorId: ''
+            creatorId: '',
         });
 
         useEffect(() => {
@@ -36,6 +38,66 @@ export default function Edit(){
         e.preventDefault();
 
         const product = Object.fromEntries(new FormData(e.currentTarget));
+
+        const hasEmptyFields = Array.from(product).some(([key, value]) => {
+            return value.trim() === "";
+        });
+
+        if (hasEmptyFields) {
+            alert("Please fill in all required fields.");
+            return;
+        }
+
+        const priceValue = product.price;
+        if (!/^\d+(\.\d{1,2})?$/.test(priceValue)) {
+            alert("Please enter a valid numeric price.");
+            return;
+        }
+        const isValidEmail = (email) => {
+            // Use a regular expression for basic email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        };
+        const isValidPhoneNumber = (phoneNumber) => {
+            // Use a regular expression for basic phone number validation
+            const phoneRegex = /^\d{10}$/;
+            return phoneRegex.test(phoneNumber);
+        };
+
+        const isValidImageUrl = async (url) => {
+            return new Promise((resolve) => {
+                const img = new Image();
+                img.onload = () => resolve(true);
+                img.onerror = () => resolve(false);
+                img.src = url;
+            });
+        };
+
+        const imageUrlValue = product.imageUrl;
+        if (imageUrlValue && !(await isValidImageUrl(imageUrlValue))) {
+            alert("Please enter a valid image URL.");
+            return;
+        }
+
+
+
+        const emailValue = product.email;
+        if (!isValidEmail(emailValue)) {
+            alert("Please enter a valid email address.");
+            return;
+        }
+
+        const phoneNumberValue = product.phoneNumber;
+        if (!isValidPhoneNumber(phoneNumberValue)) {
+            alert("Please enter a valid phone number (10 digits without spaces or special characters).");
+            return;
+        }
+        function formatDate(isoDate) {
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+
+            return new Date(isoDate).toLocaleDateString(undefined, options);
+        }
+        product.creationDate = `Edited on ${formatDate(new Date())}`;
 
         try {
             await productService.edit(_id, product);
@@ -68,22 +130,21 @@ export default function Edit(){
                     <h2>Category</h2>
                     <div className="selection">
                         <select onChange={onChange} id="category" name="category" value={product.category}>
-                            <option value="real_estate">Real Estate</option>
-                            <option value="vehicles">Cars, Caravans, Boats</option>
-                            <option value="auto_parts">Auto Parts, Accessories, Tires, and Rims</option>
-                            <option value="electronics">Electronics</option>
-                            <option value="sports_books_hobbies">Sports, Books, Hobbies</option>
-                            <option value="pets">Pets</option>
-                            <option value="home_garden">Home and Garden</option>
-                            <option value="fashion">Fashion</option>
-                            <option value="baby_child">For Babies and Children</option>
-                            <option value="tours_vacations">Tours, Vacations</option>
-                            <option value="services">Services</option>
-                            <option value="machinery_tools">Machinery, Tools, Business Equipment</option>
-                            <option value="jobs">Jobs</option>
-                            <option value="free">Free/Giveaways</option>
-                            <option value="laptops_computers">Laptops and Computers</option>
-                            <option value="accommodation">Accommodation for Christmas and New Year</option>
+                            <option value="Real Estate">Real Estate</option>
+                            <option value="Cars, Caravans, Boats">Cars, Caravans, Boats</option>
+                            <option value="Auto Parts, Accessories, Tires, and Rims">Auto Parts, Accessories, Tires, and Rims</option>
+                            <option value="Electronics">Electronics</option>
+                            <option value="Sports, Books, Hobbies">Sports, Books, Hobbies</option>
+                            <option value="Pets">Pets</option>
+                            <option value="Home and Garden">Home and Garden</option>
+                            <option value="Fashion">Fashion</option>
+                            <option value="For Baby and Children">For Babies and Children</option>
+                            <option value="Tours and vacations">Tours, Vacations</option>
+                            <option value="Services">Services</option>
+                            <option value="Machinery, Tools, Business Equipment">Machinery, Tools, Business Equipment</option>
+                            <option value="Jobs">Jobs</option>
+                            <option value="Laptops and  computers">Laptops and Computers</option>
+                            <option value="Accommodation for Christmas and New Year">Accommodation for Christmas and New Year</option>
                         </select>
                     </div>
                     <h2>Price</h2>
