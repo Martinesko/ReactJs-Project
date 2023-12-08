@@ -45,7 +45,7 @@ The frontend of the Reselling Store is built with React, a popular JavaScript li
 
 ### Backend
 
-The backend is implemented using Node.js with Express as the web application framework. The project follows a modular architecture with routes, controllers, models, and middleware.
+The backend is implemented using Node.js . The project follows a modular architecture with routes, controllers, models, and middleware.
 
 #### Routes
 
