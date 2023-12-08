@@ -12,7 +12,7 @@ export default  function CatalogItem({_id,title,price,location,imageUrl}){
             <h3 className="price">{price} lv.</h3>
             <p>{location} district</p>
             <div className="button-holder">
-                <button className="button" onClick={() => window.location.href=`http://127.0.0.1:5173/details/${_id}`}>Show</button>
+                <button className="button" onClick={() => window.location.href=`http://localhost:5173/details/${_id}`}>Show</button>
             </div>
 
         </div>

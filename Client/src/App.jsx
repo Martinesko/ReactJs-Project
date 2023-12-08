@@ -82,6 +82,7 @@ function App() {
         registerSubmitHandler,
         loginSubmitHandler,
         isAuthenticated: !!auth.email,
+        email : auth.email,
         userId: auth._id
     };
 

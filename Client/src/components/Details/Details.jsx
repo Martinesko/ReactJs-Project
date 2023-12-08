@@ -2,20 +2,24 @@ import {useContext, useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
 
 import * as productService from "../../services/productService.js";
+import * as commentService from "../../services/commentService.js";
+import useForm from "../../hooks/useForm";
 import AuthContext from "../../contexts/context.js";
 import Buttons from "./Details-holder/likeButton.jsx";
+import Comment from "./Comment/Comment.jsx";
+import usePersistedState from "../../hooks/usePersistedState.js";
 
 export default function Details(){
     const [product, setProduct] = useState([]);
     const [loading, setLoading] = useState(true);
-    const  {userId}  = useContext(AuthContext);
+    const [comments, setComments] = useState([]);
+    const [submitting, setSubmitting] = useState(false);
+    const [errors, setErrors] = useState({});
+    const  {userId, email}  = useContext(AuthContext);
+    const [auth, setAuth] = usePersistedState('auth', {});
     const {productId} = useParams();
-    function formatDate(isoDate) {
-        const options = { year: 'numeric', month: 'long', day: 'numeric' };
 
-        return new Date(isoDate).toLocaleDateString(undefined, options);
-    };
-    const date = formatDate(product.creationDate);
+
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -32,10 +36,34 @@ export default function Details(){
         fetchData();
     }, [productId]);
 
+    useEffect(() => {
+        commentService.getAll(productId)
+            .then((result) => {
+                setComments(result)
+            }).catch((e) => {
+            alert(`Error: ${e.code} ${e.message}`);
+        });
+    });
+
     let image = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png";
     if (product.imageUrl !== ""){
         image = product.imageUrl;
     }
+    const addCommentHandler = (event) => {
+        event.preventDefault();
+        const form = event.currentTarget;
+        const formData = new FormData(form);
+
+        const newComment = commentService.create(productId, formData.get("comment")).then(() => {
+            console.log(email);
+            newComment.owner = {email} ;
+        }).catch((e) => {
+            alert(`Error: ${e.code} ${e.message}`);
+        });
+    }
+
+
+
     return(
         <div className="details-container">
             <div className="main-column">
@@ -45,6 +73,17 @@ export default function Details(){
                 <div id="description">
                     <h3>Description</h3>
                     <p>{product.details}</p>
+                </div>
+                <div id="description">
+                    <h3>Comment</h3>
+                    {comments.map(comment => (
+                        <Comment key={comment._id} {...comment} />
+                    ))}
+                    <form onSubmit={addCommentHandler}>
+                        <span className="error">{errors.comment}</span>
+                        <textarea name="comment" className="form-control bg-white rounded-top mb-4" rows="4" placeholder="Comment..."></textarea>
+                        <button type="submit" className="btn color-darker-orange mb-2 w-100 p-3 fw-bold text-white">Add Comment</button>
+                    </form>
                 </div>
             </div>
             <div className="secondary-column">
