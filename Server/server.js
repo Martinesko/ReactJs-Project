@@ -1319,14 +1319,6 @@
     var identity = "email";
     var protectedData = {
     	users: {
-    		"35c62d76-8152-4626-8712-eeb96381bea8": {
-    			email: "peter@abv.bg",
-    			hashedPassword: "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1"
-    		},
-    		"847ec027-f659-4086-8032-5173e2f9c93a": {
-    			email: "george@abv.bg",
-    			hashedPassword: "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1"
-    		},
     		"60f0cf0b-34b0-4abd-9769-8c42f830dffc": {
     			email: "admin@abv.bg",
     			hashedPassword: "fac7060c3e17e6f151f247eacb2cd5ae80b8c36aedb8764e18a41bbdc16aa302"
@@ -1337,44 +1329,110 @@
     };
     var seedData = {
         products: {
-            "847ec027-a659-4086-8032-5173e2f9c93a": {
-                title: "Sample Listing Title",
-                category: "hello",
-                imageUrl: "https://contents.mediadecathlon.com/p2511365/b56ebd41ddfccff9283ab6dcdbb0b224/p2511365.jpg",
-                price: 12.3,
-                details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sample details about the product.",
-                location: "Kyustendil",
-                firstName: "John",
-                email: "john@example.com",
-                phoneNumber: "123-456-7890",
-                creationDate: "2023-12-07T00:29:27.930Z",
-                creatorId:""
+            "d79c271a-1d4b-4f6f-afe3-182a6069b30e": {
+                _ownerId:	"60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                title:	"Audi A3",
+                category:	"Cars, Caravans, Boats",
+                price	:"2946.93",
+                details:	"2012 Audi A3 Premium 2.0L I4 FSI Turbo 4 Door Hatchback, RARE" +
+                    " 6-Speed" +  " Manual Transmission (this vehicle is not an Automatic) 200HP" +
+                    " - 207 lb ft stock. Unmolested. No mods. Leather Interior/Wrapped Steering" +
+                    "  Wheel, Fog Lights, FWD,\nGarage Kept, non-smoker, 151,800 miles, No" +
+                    " Accidents.  Very clean inside and out. No rips or tears. Tilt/Telescope" +
+                    "  steering wheel, Open Sky Panoramic Sunroof, Chrome Roof Rails, Bluetooth/" +
+                    "  Sirius/CD Player, 2 key fobs/switchblade keys, Keyless entry, Power" +
+                    " driver’ s seat, Cruise control, Steering wheel controls, Rear spoiler  and" +
+                    " rear wiper, Hill-Start Assist. Well-maintained. No recalls. (Takata" +
+                    "  airbag recall done) I have all the service records since purchased  at" +
+                    " 27K miles from Audi Dealer as Audi Certified Pre-Owned. Brand new  General" +
+                    " tires, 4-wheel alignment, recent fuel injection clean, carbon cleaning," +
+                    "  brake flush, recent oil change. Cargo Mat and all-season mats included" +
+                    "   plus original Audi carpeted floor mats front and rear. Everything works" +
+                    " and car runs, shifts, drives and handles like a champ. It does not smoke" +
+                    "   and is not throwing any codes or check engine lights. Will use a quart" +
+                    "  of oil at about 1000 miles. Typical VW/Audi Turbo engine. Clean GA Title" +
+                    "  in hand. VIN# WAUFEAFM2CA042631. If local, can inspect and drive vehicle" +
+                    "  before bidding. Will send photos of any part of the car within reason," +
+                    "  just ask. I also have Full CarFax Report, I don't understand the low" +
+                    " Experian Score on ebay.",
+                location:	"kyustendil",
+                firstName:	"Martin",
+                email:"test@abv.bg",
+                phoneNumber:	"0888888888",
+                imageUrl:	"https://i.ebayimg.com/images/g/8scAAOSw2EhlcJcF/s-l1600.jpg",
+                creationDate:	"Added March 28, 2023",
+                _createdOn:	1702035584154,
             },
-            "847ec027-ak59-4086-8032-5173e2f9c93a": {
-                title: "Another Listing",
-                category: "world",
-                imageUrl: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-                price: 12.3,
-                details: "Details about another product.",
-                location: "Another Location",
-                firstName: "Jane",
-                email: "jane@example.com",
-                phoneNumber: "987-654-3210",
-                creationDate: "2023-12-07T00:29:27.930Z",
-                creatorId:""
+            "a20c586f-1a57-47e8-b789-601190adf3e7": {
+                _ownerId:"60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                title:"Nike Air Force 1 '07 LV8",
+                category:"Fashion",
+                price:"249.99",
+                details:"Color Shown: Black/Light Crimson/Black\n    Style: DZ4514-001",
+                location:"Veliko Тarnovo",
+                firstName:"Ivan",
+                email:"ivan@abv.bg",
+                phoneNumber:"0888888888",
+                imageUrl:"https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/b3546974-0d23-4657-a8a7-8d6abc9fc5e8/air-force-1-07-lv8-shoes-p2p25V.png",
+                creationDate:"Added June 2, 2023",
+                _createdOn:1702036411789,
+                _id:"a20c586f-1a57-47e8-b789-601190adf3e7"
             },
-            "847ec02k-ak59-4086-8032-5173e2f9c93a": {
-                title: "hello",
-                category: "world",
-                imageUrl: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?q=80&w=1976&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-                price: 12.3,
-                details: "Details about another product.",
-                location: "Another Location",
-                firstName: "Jane",
-                email: "jane@example.com",
-                phoneNumber: "987-654-3210",
-                creationDate: "2023-12-07T00:29:27.930Z",
-                creatorId:""
+            "ef45735d-e56e-45b2-a80f-a07a4262a310": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                title: "МЕГА ПРОМО Соларна безжична WIFI Камера FULL HD външен монтаж IP65",
+                category: "Electronics",
+                price: "69.88",
+                details: "Соларна безжична WIFI Камера FULL HD външен монтаж,безкабелна.\n\nВсички продукти се изпращат със тест и преглед и 25 процента отстъпка от доставката!!!\n\nНашата смарт соларна камера е подходяща за външно наблюдение на жилищни и търговски сгради, къщи, вили, къщи за гости, апартаменти, пчелини, язовири, паркинги и още много.\n\nХАРАКТЕРИСТИКИ:\n– Метален корпус\n– Водоустойчив IP66\n– Без кабели, безжичен\n– Вграден соларен панел за презареждане на батерията\n– IR 8 светодиоди\n– FullHD 1080p 1920x1080 резолюция\n– 3.6мм, 2MP, HD обектив\n– Зрително поле с ширина 100 градуса\n– Слот за MicroSD карта\n– IR-CUT за ясно изображение\n– Детектор на движение\n– Android / iOS съвместим\n– Размер L200mm x W100mm x H70mm\n– Тегло на пакета 1000гр\n\nМОДЕЛ 1-КАМЕРА БЕЗ ЦВЕТНО НОЩНО ВИЖДАНЕ 69.90 ЛВ\nМОДЕЛ 2-КАМЕРА СЪС ЦВЕТНО НОЩНО ВИЖДАНЕ 89.90 ЛВ\n\nИновация ! Без сложни системи и захранващи кабели! Изключително лесен монтаж без никакви познания! Поставете навсякъде, без ограничения!\n\nНашата смарт соларна камера Solar PRO Full HD е подходяща за външно наблюдение на жилищни и търговски сгради, къщи, вили, къщи за гости, апартаменти, пчелини, язовири, паркинги и още много.\n\nНашата смарт соларна камера Solar PRO Full HD е подходяща за външно наблюдение на жилищни и търговски сгради, къщи, вили, къщи за гости, апартаменти, пчелини, язовири, паркинги и още много.\nТоп 6 предимства на охранителните соларни камери.\n\n1. Соларните камери за сигурност позволяват поставянето им на трудностъпни места.\n2.. Лесен за инсталиране и преместване.\n3. Екологично чисти.\n4. Соларните камери предлагат наблюдение през деня и нощта.\n5. Двупосочно аудио връзка.\n6. Камерите имат дълъг експлоатационен живот.\n\nМоже да се използва навсякъде и по всяко време! Включени в комплекта батерии, с голям капацитет и соларен панел;\nWifi връзка и дистанционно управление, чрез мобилното приложение;\nМоже да се използва навсякъде и по всяко време!\nWifi връзка и дистанционно управление ,чрез мобилното приложение;\nПо-високо качество на изображението благодарение на Full HD 2-мегапикселова резолюция, 4X Zoom, нощен изглед, сензор за запис и движение до 50 метра.\n\nТагове: dvr, двр, dvri, дрви, nvr, нвр, nvri, нври, dvr recorder, dvr рекордер, dvr рекодер, dvr рекордери, двр рекордер, двр рекордери, dvr устройство, двр устроиство, dvr записвачка, двр записвачка, записващо устройство, записващи устройства, записвачки, мрежов рекордер, цифров рекордер, двр за камери, dvr za kameri, dvr за камери, видеозаписвачка, видео записвачка, видеонаблюдение, видео наблюдение, пакет за видеонаблюдение, пакет за видео наблюдение, комплект за видеонаблюдение, комплект за видео наблюдение, видеокомплект, видео комплекти, видеокамера, видео камера, видеокамери, видео камери, бебефон, видеобебефон, бейбифон, ай пи камера, ip камера, ip camera, ip kamera, PTZ, PTZ камера, ПТЗ Камера, ИП Камера, АЙ ПИ камера, wifi камера, wi fi камера, видео бебефон, охранителна камера, camera, cam, онлайн наблюдение, шпиониране, шпионка, охранителна, охрана, робикам, robicam, robocam, наблюдава, шпионска, подслушване, гледане, бебе фон, бейби фон, бебефон, бейбифон, охрана, охраняема камера, охранителна камера",
+                location: "Burgas",
+                firstName: "Georgi",
+                email: "georgi@abv.bg",
+                phoneNumber: "0888888888",
+                imageUrl: "https://frankfurt.apollo.olxcdn.com/v1/files/dfnejk9az6ox-BG/image;s=1000x700",
+                creationDate: "Added September 15, 2023",
+                _createdOn: 1702036879310,
+            },
+            "f26601ee-0c3c-476f-96ae-d5c73794c1af": {
+                "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                "title": "2021 Apple iPad 9th Gen 64/256GB WiFi 10.2",
+                "category": "Electronics",
+                "price": "534.95",
+                "details": "(none)",
+                "location": "Burgas",
+                "firstName": "Elena",
+                "email": "elena@abv.bg",
+                "phoneNumber": "0888888888",
+                "imageUrl": "https://i.ebayimg.com/images/g/5R0AAOSwMDZhTrQk/s-l1600.jpg",
+                "creationDate": "Added November 10, 2023",
+                "_createdOn": 1702038021980,
+            },
+            "fafb40ce-f0fe-41f9-a9b8-d8b0a96e60c4": {
+                "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                "title": "NEW OMEGA Women's Watch 231.10.39.21.55.002 Seamaster",
+                "category": "Fashion",
+                "price": "8292.64",
+                "details": "Marke: OMEGA\nModell: Seamaster\nReferenz: 231.10.39.21.55.002\nArmband: Armband\nZifferblattfarbe: Perlmutt\nWerk: Automatic\nAbmessungen: 38.5 mm\nGeschlecht: Damen\nZustand: Neu",
+                "location": "Burgas",
+                "firstName": "Philip",
+                "email": "philip@abv.bg",
+                "phoneNumber": "0897633655",
+                "imageUrl": "https://i.ebayimg.com/images/g/bXIAAOSwMsxj9MhT/s-l1600.jpg",
+                "creationDate": "Added December 3, 2023",
+                "_createdOn": 1702038341253,
+            },
+            "af4ecb32-79d2-4c87-8ae2-05973522eff6": {
+                "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                "title": "Picture 1 of 7 Hover to zoom OnePlus 10T 5G 128GB Moonstone Black T-Mobile Unlocked Smartphone - Brand New.",
+                "category": "Electronics",
+                "price": "598.39",
+                "details": "UNLOCKED STATUS OF DEVICE:\n\nThe Device is Unlocked would work for Local and International GSM Carriers. (AT&TT-Mobile Etc..)\nThe Device will work for CDMA carrier like Verizon and Sprint\nBrand New ",
+                "location": "Gabrovo",
+                "firstName": "Krasimir",
+                "email": "krasimir@abv.bg",
+                "phoneNumber": "0888888888",
+                "imageUrl": "https://i.ebayimg.com/images/g/RlQAAOSwhRhkuYfh/s-l1600.jpg",
+                "creationDate": "Added December 7, 2023",
+                "_createdOn": 1702038661209,
             }
         }
     };
