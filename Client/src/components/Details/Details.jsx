@@ -10,6 +10,12 @@ export default function Details(){
     const [loading, setLoading] = useState(true);
     const  {userId}  = useContext(AuthContext);
     const {productId} = useParams();
+    function formatDate(isoDate) {
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+
+        return new Date(isoDate).toLocaleDateString(undefined, options);
+    };
+    const date = formatDate(product.creationDate);
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -30,12 +36,6 @@ export default function Details(){
     if (product.imageUrl !== ""){
         image = product.imageUrl;
     }
-
-    const months = [
-        'January', 'February', 'March', 'April', 'May', 'June',
-        'July', 'August', 'September', 'October', 'November', 'December'
-    ];
-
     return(
         <div className="details-container">
             <div className="main-column">
@@ -49,9 +49,12 @@ export default function Details(){
             </div>
             <div className="secondary-column">
                 <div className="main-information">
-                    {/*<p>{`Added ${months[product.creationDate.getMonth()]} ${product.creationDate.getDate()}, ${product.creationDate.getFullYear()}`}</p>*/}
-                    <h1>{product.title}</h1>
-                    <h2>{product.price} лв.</h2>
+                    <p>{`${product.creationDate}`}</p>
+                    <div className="title">
+                        <h1>{product.title}</h1>
+                        <p>{product.category}</p>
+                    </div>
+                    <h2>{product.price} lv.</h2>
                     <Buttons product={product} userId={userId}/>
                 </div>
                 <div className="seller-container">
