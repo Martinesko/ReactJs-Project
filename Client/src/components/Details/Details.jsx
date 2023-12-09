@@ -3,47 +3,37 @@ import {useParams} from "react-router-dom";
 
 import * as productService from "../../services/productService.js";
 import * as commentService from "../../services/commentService.js";
-import useForm from "../../hooks/useForm";
 import AuthContext from "../../contexts/context.js";
 import Buttons from "./Details-holder/likeButton.jsx";
 import Comment from "./Comment/Comment.jsx";
 import usePersistedState from "../../hooks/usePersistedState.js";
 
 export default function Details(){
-    const [product, setProduct] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [product, setProduct] = useState({});
     const [comments, setComments] = useState([]);
-    const [submitting, setSubmitting] = useState(false);
-    const [errors, setErrors] = useState({});
+    const [commentsCount, setCommentsCount] = useState(0);
     const  {userId, email}  = useContext(AuthContext);
-    const [auth, setAuth] = usePersistedState('auth', {});
     const {productId} = useParams();
 
 
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                setLoading(true);
-                const result = await productService.getProduct(productId);
-                setProduct(result);
-            } catch (error) {
-                console.error("Error fetching product:", error);
-            } finally {
-                setLoading(false);
-            }
-        };
+    useEffect( () => {
 
-        fetchData();
+             productService.getProduct(productId).then((result)=>{
+                 setProduct(result)}).catch((error) => {
+                     console.error("Error fetching product:", error);
+                 })
+
     }, [productId]);
 
     useEffect(() => {
         commentService.getAll(productId)
             .then((result) => {
                 setComments(result)
+                setCommentsCount(result.length)
             }).catch((e) => {
             alert(`Error: ${e.code} ${e.message}`);
         });
-    });
+    },[commentsCount]);
 
     let image = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png";
     if (product.imageUrl !== ""){
@@ -51,15 +41,15 @@ export default function Details(){
     }
     const addCommentHandler = (event) => {
         event.preventDefault();
-        const form = event.currentTarget;
-        const formData = new FormData(form);
-
-        const newComment = commentService.create(productId, formData.get("comment")).then(() => {
-            console.log(email);
+        const commentForm = Object.fromEntries(new FormData(document.getElementById("comment-form")));
+        const newComment = commentService.create(productId, commentForm.comment).then(() => {
+            setCommentsCount(commentsCount+1);
             newComment.owner = {email} ;
         }).catch((e) => {
             alert(`Error: ${e.code} ${e.message}`);
         });
+
+        document.getElementById("comment").value = "";
     }
 
 
@@ -75,14 +65,16 @@ export default function Details(){
                     <p>{product.details}</p>
                 </div>
                 <div id="description">
-                    <h3>Comment</h3>
-                    {comments.map(comment => (
-                        <Comment key={comment._id} {...comment} />
-                    ))}
-                    <form onSubmit={addCommentHandler}>
-                        <span className="error">{errors.comment}</span>
-                        <textarea name="comment" className="form-control bg-white rounded-top mb-4" rows="4" placeholder="Comment..."></textarea>
-                        <button type="submit" className="btn color-darker-orange mb-2 w-100 p-3 fw-bold text-white">Add Comment</button>
+                    <h3>Comments ({commentsCount})</h3>
+                    <div className="comments">
+                        {comments.map(comment => (
+                            <Comment key={comment._id} {...comment} />
+                        ))}
+                    </div>
+
+                    <form id="comment-form" className="comment-holder" onSubmit={addCommentHandler}>
+                        <textarea id="comment" name="comment" className="comment-input" placeholder="Comment..."></textarea>
+                        <button type="submit" className="sent-button">Send</button>
                     </form>
                 </div>
             </div>

@@ -51,6 +51,9 @@
 .button-holder .button{
     display: flex;
     flex-direction: column;
+    text-decoration: none;
+    text-align: center;
+    margin-right: 0px;
 }
 .catalog-container {
     background-color: #f2f4f5;
@@ -112,6 +115,7 @@
     text-align: left;
     padding-top: 30px;
     padding-left: 20px;
+    padding-right: 20px;
     font-weight: lighter;
 }
 

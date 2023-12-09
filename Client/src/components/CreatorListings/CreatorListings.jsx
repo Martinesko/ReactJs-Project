@@ -9,7 +9,10 @@ export default function YourListings(){
     const  {userId}  = useContext(AuthContext);
     useEffect(() => {
         productService.getUserProducts(userId)
-            .then(result => setProduct(result));
+            .then(result => setProduct(result)).catch((e)=> {
+            alert(`Error: ${e.code} ${e.message}`);
+        })
+
     }, []);
     return(
         <div className="catalog-container">

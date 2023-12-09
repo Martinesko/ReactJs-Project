@@ -69,10 +69,9 @@ function App() {
         const shouldLogout = window.confirm('Are you sure you want to log out?');
         if (shouldLogout){
             await authService.logout();
+            setAuth({});
+            localStorage.removeItem('accessToken');
         }
-
-        setAuth({});
-        localStorage.removeItem('accessToken');
 
         navigate("/");
     };

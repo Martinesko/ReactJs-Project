@@ -91,8 +91,8 @@ export default function Create(){
             await productService.create(productData);
             alert("You have successfully created your listing!")
             navigate(`/listings`);
-        } catch (err) {
-            alert(err);
+        } catch (e) {
+            alert(`Error: ${e.code} ${e.message}`);
             navigate("/");
         }
     };

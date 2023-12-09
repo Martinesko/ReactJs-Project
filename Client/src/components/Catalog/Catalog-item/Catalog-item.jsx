@@ -1,3 +1,5 @@
+import {Link} from "react-router-dom";
+
 export default  function CatalogItem({_id,title,price,location,imageUrl}){
 
     let image = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png";
@@ -11,11 +13,10 @@ export default  function CatalogItem({_id,title,price,location,imageUrl}){
             <h3 className="listing-title">{title}</h3>
             <h3 className="price">{price} lv.</h3>
             <p>{location} district</p>
-            <div className="button-holder">
-                <button className="button" onClick={() => window.location.href=`http://localhost:5173/details/${_id}`}>Show</button>
-            </div>
-
-        </div>
+        </div><
+        div className="button-holder">
+        <Link to={`/details/${_id}`} className="button">Show</Link>
+    </div>
     </div>
 )
 }

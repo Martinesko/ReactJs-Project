@@ -135,3 +135,38 @@
     flex-direction: column;
     gap:10px;
 }
+.comment-input{
+    resize: none;
+    background-color: #f2f4f5;
+    border-radius: 10px;
+    width: 97%;
+    font-size: 20px;
+    text-align: left;
+    height: 5em;
+    margin-top:20px;
+    padding-left: 1em;
+    padding-top: 1em;
+}
+.sent-button{
+    font-size: 20px;
+    padding: 0.5em;
+    border-radius: 10px;
+}
+
+.comment-holder{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+.comments{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+.comment{
+    margin-top:2%;
+    padding: 2%;
+    background-color: #f2f4f5;
+    border-radius: 20px;
+
+}

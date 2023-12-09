@@ -1,20 +1,20 @@
 import usePersistedState from "../../../hooks/usePersistedState.js";
 import {useNavigate} from "react-router-dom";
 
-export default function Buttons({ userId ,product }){
+export default function Buttons(values){
     const navigate = useNavigate();
     const callHandle = () => {
-        window.location.href = `tel:${product.phoneNumber}`;
+        window.location.href = `tel:${values.product.phoneNumber}`;
     };
     const emailHandle = () => {
-        window.location.href = `mailto:${product.email}`;
+        window.location.href = `mailto:${values.product.email}`;
     };
     const registerHandle = () => {
-        alert("Please register to get access to this function")
-        navigate(`/register`);
+        alert("Please login to get access to this function")
+        navigate(`/login`);
     };
 
-    if (userId !== undefined){
+    if (values.userId !== undefined){
         return(
             <div id="con">
                 <button id="callnow" onClick={callHandle} className="button">Call now</button>

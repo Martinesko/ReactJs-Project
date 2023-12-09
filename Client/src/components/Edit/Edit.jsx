@@ -30,7 +30,9 @@ export default function Edit(){
                     if (result._ownerId !== userId) {
                        return navigate("/");
                     }
-                });
+                }).catch((e)=> {
+                alert(`Error: ${e.code} ${e.message}`);
+            });
 
         }, [_id]);
 

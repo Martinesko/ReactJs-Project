@@ -22,11 +22,11 @@ return (
             <h3 className="listing-title">{value.title}</h3>
             <h3 className="price">{value.price} lv.</h3>
             <p>{value.location} district</p>
-            <div className="buttons">
-                <button id = "edit" onClick={()=>{navigate(`edit/${value._id}`)}} className="button" >Edit</button>
-                <button id ="delete" onClick={productRemoveHandler} className="button" >Delete</button>
-            </div>
         </div>
+        <div className="buttons">
+        <button id = "edit" onClick={()=>{navigate(`edit/${value._id}`)}} className="button" >Edit</button>
+        <button id ="delete" onClick={productRemoveHandler} className="button" >Delete</button>
+    </div>
     </div>
 )
 }

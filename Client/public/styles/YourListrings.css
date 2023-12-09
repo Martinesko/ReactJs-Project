@@ -1,10 +1,11 @@
 .information-Container-your{
     text-align: left;
-    padding-top:30px;
+    padding-top: 30px;
     padding-left: 20px;
+    padding-right: 20px;
     font-weight: lighter;
-    padding-bottom: 20px;
 }
 .buttons{
     padding-top:10px;
+    padding-bottom: 20px;
 }
